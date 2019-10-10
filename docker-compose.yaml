@@ -1,7 +1,7 @@
 version: '2'
 services:
   web:
-    image: zzh/aproxy
+    image: baffedu/aproxy
     volumes: 
       - ./code/:/var/www/html/  
     networks: 
