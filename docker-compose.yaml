@@ -1,0 +1,25 @@
+version: '2'
+services:
+  web:
+    image: zzh/aproxy
+    volumes: 
+      - ./code/:/var/www/html/  
+    networks: 
+      baff:
+      private:
+    ports: 
+      - 80:80
+  php-fpm:
+    image: baffedu/php-fpm
+    volumes: 
+      - ./code/:/var/www/html/
+    networks: 
+      baff:
+      private:
+        aliases: 
+          - fpm-host
+
+networks:
+  baff:
+    external: true
+  private:
