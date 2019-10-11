@@ -24,6 +24,13 @@ services:
       - ./code/:/var/www/html/
       # 如果是正常情况下 下面这句不需要 这里覆盖了默认的计划任务
       - ./code/root:/var/spool/cron/crontabs/root
+  command1:
+    image: baffedu/php-cli
+    volumes: 
+      - ./code/:/var/www/html/
+    networks: 
+      baff:
+    command: php /var/www/html/command.php
 
 networks:
   baff:
