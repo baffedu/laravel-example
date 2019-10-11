@@ -18,6 +18,12 @@ services:
       private:
         aliases: 
           - fpm-host
+  crontab:
+    image: baffedu/php-cli:devlop
+    volumes: 
+      - ./code/:/var/www/html/
+      # 如果是正常情况下 下面这句不需要 这里覆盖了默认的计划任务
+      - ./code/root:/var/spool/cron/crontabs/root
 
 networks:
   baff:
